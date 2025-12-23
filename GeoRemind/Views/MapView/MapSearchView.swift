@@ -313,7 +313,11 @@ struct MapSearchView: View {
                         Button(action: {
                             print("Add reminder tapped at \(location.name ?? "")")
                             showPopup = false
-                            addReminder()
+                            if let _ = CoreDataManager.shared.fetchReminders().firstIndex(where: {$0.identifier == location.identifier?.rawValue ?? ""}) {
+                                Utility.shared.showCustomMessage(message: "You already have a reminder set for this location!",theme: .error)
+                            }else {
+                                addReminder()
+                            }
 
                         }) {
                             Text("Add reminder to this location")
@@ -382,19 +386,19 @@ struct MapSearchView: View {
         print("ADD REMINDER LAT = \(coordinate.latitude)")
         print("ADD REMINDER LONG = \(coordinate.longitude)")
 
-        let identifier = UUID().uuidString
-
         CoreDataManager.shared.addReminder(
             name: location.name ?? "Unknown",
             latitude: coordinate.latitude,
             longitude: coordinate.longitude,
-            identifier: identifier,
+            identifier: location.identifier?.rawValue ?? "",
             radius: 100,
             isActive: true
         )
         
+        print("\(location.name ?? "") and identifeir = \(location.identifier?.rawValue ?? "") ")
         
-        locationManager.startMonitoringGeofence(identifier: identifier,
+        
+        locationManager.startMonitoringGeofence(identifier: location.identifier?.rawValue ?? "",
                                                 latitude: coordinate.latitude,
                                                 longitude: coordinate.longitude,
                                                 radius: 100,

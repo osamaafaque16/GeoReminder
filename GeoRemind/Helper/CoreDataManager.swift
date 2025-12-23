@@ -81,24 +81,50 @@ class CoreDataManager {
 //        }
 //    }
     
-    func deleteReminder(withIdentifier identifier: String, completion: @escaping () -> Void) {
+//    func deleteReminder(withIdentifier identifier: String, completion: @escaping () -> Void) {
+//        let context = container.viewContext
+//        let request: NSFetchRequest<Reminder> = Reminder.fetchRequest()
+//        request.predicate = NSPredicate(format: "identifier == %@", identifier)
+//        request.fetchLimit = 1
+//        
+//        do {
+//            if let reminderToDelete = try context.fetch(request).first {
+//                context.delete(reminderToDelete)
+//                print("Reminder deleted with identifier = \(identifier)")
+//                save()
+//                completion()
+//            } else {
+//                print("No reminder found with identifier: \(identifier)")
+//            }
+//        } catch {
+//            print("Failed to delete reminder by identifier:\(identifier) with error: \(error)")
+//        }
+//    }
+    
+    func deleteReminder(withIdentifier identifier: String,completion: @escaping (_ deletedIndex: Int?) -> Void) {
         let context = container.viewContext
         let request: NSFetchRequest<Reminder> = Reminder.fetchRequest()
         request.predicate = NSPredicate(format: "identifier == %@", identifier)
-        request.fetchLimit = 1
-        
+
         do {
-            if let reminderToDelete = try context.fetch(request).first {
+            let results = try context.fetch(request)
+
+
+            if let index = fetchReminders().firstIndex(where: {$0.identifier == identifier}), let reminderToDelete = results.first(where: {$0.identifier == identifier}) {
+                
                 context.delete(reminderToDelete)
                 save()
-                completion()
-            } else {
-                print("No reminder found with identifier: \(identifier)")
+                
+                print("Reminder deleted with identifier = \(identifier)")
+                completion(index)
             }
+
         } catch {
-            print("Failed to delete reminder by identifier: \(error)")
+            print("Failed to delete reminder: \(error)")
+            completion(nil)
         }
     }
+
     
     // Update reminder by ID
     func updateReminderStatus(id: UUID,isActive: Bool,completion: (() -> Void)? = nil) {

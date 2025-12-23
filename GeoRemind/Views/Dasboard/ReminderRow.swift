@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ReminderRow: View {
-    @Binding var reminder: Reminder
+    var reminder: Reminder
     @State var identifier : String
     var onRowTap: () -> Void
     var onBtnTap: () -> Void
@@ -43,9 +43,7 @@ struct ReminderRow: View {
             
             Button {
                 AppCoordinator.showDeleteReminderAlert() {
-                    CoreDataManager.shared.deleteReminder(withIdentifier: identifier){
                         onBtnTap()
-                    }
                 }
             } label: {
                 Image(systemName: "ellipsis")

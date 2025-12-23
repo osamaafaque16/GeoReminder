@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct RemindersListView: View {
-    @Binding var reminders: [Reminder]
+    var reminders: [Reminder]
     var appCoordinator: AppCoordinator
+    var onDelete: (Int) -> Void
 
     var body: some View {
         if reminders.isEmpty {
@@ -17,15 +18,16 @@ struct RemindersListView: View {
         } else {
             LazyVStack(spacing: 12) {
                 ForEach(reminders.indices, id: \.self) { index in
-//                    ReminderRow(reminder: $reminders[index], id: reminders[index].id) {
-//                        reminders.removeAll(where: {$0.id == reminders[index].id})
-//                    }
                     
-                    ReminderRow(reminder: $reminders[index], identifier: reminders[index].identifier , onRowTap: {
+                    ReminderRow(reminder: reminders[index], identifier: reminders[index].identifier , onRowTap: {
                         appCoordinator.showReminderDetail(reminder: reminders[index])
                     }, onBtnTap: {
-                        if let index = reminders.firstIndex(where: {$0.identifier == reminders[index].identifier}) {
-                            reminders.remove(at: index)
+                        let identifier = reminders[index].identifier
+                        
+                        CoreDataManager.shared.deleteReminder(withIdentifier: identifier){ deletedIndex in
+                            if let index = deletedIndex {
+                                onDelete(index)
+                            }
                         }
                     })
                         .padding()
@@ -38,20 +40,5 @@ struct RemindersListView: View {
             .padding(.horizontal)
         }
     }
-
-    // MARK: - Helpers
-
-//    private func binding(for reminder: Reminder) -> Binding<Reminder> {
-//        guard let index = reminders.firstIndex(where: { $0.id == reminder.id }) else {
-//            fatalError("Reminder not found")
-//        }
-//        return $reminders[index]
-//    }
-//
-//    private func delete(reminder: Reminder) {
-//        if let index = reminders.firstIndex(where: { $0.id == reminder.id }) {
-//            reminders.remove(at: index)
-//        }
-//    }
 }
 

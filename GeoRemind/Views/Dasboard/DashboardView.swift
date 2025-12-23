@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DashboardView: View {
     @State private var stepCount: Int = 0
-//    @State private var reminders: [Reminder]
     @StateObject private var dashboardVM = DashboardViewModel()
     var appCoordinator: AppCoordinator
 
@@ -38,8 +37,10 @@ struct DashboardView: View {
                             .padding(.horizontal)
                     
                         
-                    RemindersListView(reminders: $dashboardVM.reminders, appCoordinator: appCoordinator)
-                    
+                    RemindersListView(reminders: dashboardVM.reminders, appCoordinator: appCoordinator) { index in
+                        dashboardVM.reminders.remove(at: index)
+                    }
+
                     Spacer()
                 }
                 .padding(.top)
@@ -67,7 +68,6 @@ struct DashboardView: View {
             dashboardVM.fetchStepCount() { steps in
                 self.stepCount = steps
             }
-//            reminders = CoreDataManager.shared.fetchReminders()
             dashboardVM.fetchReminders()
         }
     }
