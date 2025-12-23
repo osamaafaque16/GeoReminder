@@ -10,7 +10,18 @@
 		8986DF252EF80A8200354A26 /* SwiftMessages in Frameworks */ = {isa = PBXBuildFile; productRef = 8986DF242EF80A8200354A26 /* SwiftMessages */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		8986E53E2EFB289100354A26 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 89901D042EF51872007D78AC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89901D0B2EF51872007D78AC;
+			remoteInfo = GeoRemind;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		8986E53A2EFB289100354A26 /* GeoRemindTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GeoRemindTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89901D0C2EF51872007D78AC /* GeoRemind.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GeoRemind.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -25,6 +36,11 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		8986E53B2EFB289100354A26 /* GeoRemindTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = GeoRemindTests;
+			sourceTree = "<group>";
+		};
 		89901D0E2EF51872007D78AC /* GeoRemind */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -36,6 +52,13 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8986E5372EFB289100354A26 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		89901D092EF51872007D78AC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -51,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				89901D0E2EF51872007D78AC /* GeoRemind */,
+				8986E53B2EFB289100354A26 /* GeoRemindTests */,
 				89901D0D2EF51872007D78AC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				89901D0C2EF51872007D78AC /* GeoRemind.app */,
+				8986E53A2EFB289100354A26 /* GeoRemindTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,6 +91,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8986E5392EFB289100354A26 /* GeoRemindTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8986E5402EFB289100354A26 /* Build configuration list for PBXNativeTarget "GeoRemindTests" */;
+			buildPhases = (
+				8986E5362EFB289100354A26 /* Sources */,
+				8986E5372EFB289100354A26 /* Frameworks */,
+				8986E5382EFB289100354A26 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8986E53F2EFB289100354A26 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				8986E53B2EFB289100354A26 /* GeoRemindTests */,
+			);
+			name = GeoRemindTests;
+			packageProductDependencies = (
+			);
+			productName = GeoRemindTests;
+			productReference = 8986E53A2EFB289100354A26 /* GeoRemindTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		89901D0B2EF51872007D78AC /* GeoRemind */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 89901D222EF51874007D78AC /* Build configuration list for PBXNativeTarget "GeoRemind" */;
@@ -99,6 +147,10 @@
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
+					8986E5392EFB289100354A26 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 89901D0B2EF51872007D78AC;
+					};
 					89901D0B2EF51872007D78AC = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -122,11 +174,19 @@
 			projectRoot = "";
 			targets = (
 				89901D0B2EF51872007D78AC /* GeoRemind */,
+				8986E5392EFB289100354A26 /* GeoRemindTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8986E5382EFB289100354A26 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		89901D0A2EF51872007D78AC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -137,6 +197,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8986E5362EFB289100354A26 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		89901D082EF51872007D78AC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -146,7 +213,49 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8986E53F2EFB289100354A26 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 89901D0B2EF51872007D78AC /* GeoRemind */;
+			targetProxy = 8986E53E2EFB289100354A26 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		8986E5412EFB289100354A26 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.carecloud.GeoRemindTests.GeoRemindTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeoRemind.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GeoRemind";
+			};
+			name = Debug;
+		};
+		8986E5422EFB289100354A26 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.carecloud.GeoRemindTests.GeoRemindTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GeoRemind.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GeoRemind";
+			};
+			name = Release;
+		};
 		89901D232EF51874007D78AC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -155,7 +264,7 @@
 				CODE_SIGN_ENTITLEMENTS = GeoRemind/GeoRemind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 95C6JSW8P3;
+				DEVELOPMENT_TEAM = 696PA32759;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GeoRemind/Info.plist;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app reads your step count";
@@ -174,7 +283,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mtbc.primephr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.carecloud.GeoRemind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -194,7 +303,7 @@
 				CODE_SIGN_ENTITLEMENTS = GeoRemind/GeoRemind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 95C6JSW8P3;
+				DEVELOPMENT_TEAM = 696PA32759;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GeoRemind/Info.plist;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app reads your step count";
@@ -213,7 +322,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.mtbc.primephr;
+				PRODUCT_BUNDLE_IDENTIFIER = com.carecloud.GeoRemind;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -349,6 +458,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8986E5402EFB289100354A26 /* Build configuration list for PBXNativeTarget "GeoRemindTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8986E5412EFB289100354A26 /* Debug */,
+				8986E5422EFB289100354A26 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		89901D072EF51872007D78AC /* Build configuration list for PBXProject "GeoRemind" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

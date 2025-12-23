@@ -21,10 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
        
+        Thread.sleep(forTimeInterval: 2)
         UNUserNotificationCenter.current().delegate = self
         self.requestNotificationPermission()
         LocationManager.shared.requestLocationPermission()
-        LocationManager.shared.restoreGeofences(reminders: CoreDataManager.shared.fetchReminders())
+        LocationManager.shared.restoreGeofences(reminders:CoreDataManager.shared.fetchReminders())
         return true
     }
 

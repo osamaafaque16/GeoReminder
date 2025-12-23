@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-final class AppCoordinator {
+ class AppCoordinator {
     let navigationController = UINavigationController()
 
     func start() {
@@ -29,7 +29,7 @@ final class AppCoordinator {
     }
     
     func showReminderDetail(reminder: Reminder) {
-        let mapVC = UIHostingController(rootView: ReminderDetailView(appCoordinator: self,reminder: reminder))
+        let mapVC = UIHostingController(rootView: ReminderDetailView(reminder: reminder, appCoordinator: self))
         navigationController.pushViewController(mapVC, animated: true)
     }
     
@@ -68,3 +68,9 @@ final class AppCoordinator {
     }
 }
 
+extension AppCoordinator: ReminderCoordinatorProtocol {
+    func showMap(pageType: MapSearchViewType, reminder: Reminder) {
+        let mapVC = UIHostingController(rootView: MapSearchView(appCoordinator: self, pageType: pageType, selectedReminder: reminder))
+        navigationController.pushViewController(mapVC, animated: true)
+    }
+}
