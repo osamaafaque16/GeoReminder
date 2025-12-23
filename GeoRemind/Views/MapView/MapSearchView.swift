@@ -283,19 +283,24 @@ struct MapSearchView: View {
                     }
                     
                     if locationManager.authorizationStatus == .authorizedWhenInUse ||
-                       locationManager.authorizationStatus == .authorizedAlways {
-                        Button(action: centerOnUserLocation) {
-                            HStack {
-                                Image(systemName: "location.fill")
-                                Text("Center on My Location")
+                        locationManager.authorizationStatus == .authorizedAlways {
+                        HStack {
+                            Spacer()
+                            Button(action: centerOnUserLocation) {
+                                HStack {
+                                    Image(systemName: "location.fill")
+                                    Text("Center on My Location")
+                                }
+                                .font(.subheadline.bold())
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 20)
+                                .padding(.vertical, 12)
+                                .background(Color.blue)
+                                .cornerRadius(25)
                             }
-                            .font(.subheadline.bold())
-                            .foregroundColor(.white)
-                            .padding(.horizontal, 20)
-                            .padding(.vertical, 12)
-                            .background(Color.blue)
-                            .cornerRadius(25)
+                            Spacer()
                         }
+
                     }
                 }
                 .padding(.bottom, 20)
@@ -377,6 +382,8 @@ struct MapSearchView: View {
                 )
             )
         }
+        print("LATITUDE = \(location.coordinate.latitude)")
+        print("LONGIUDE = \(location.coordinate.longitude)")
     }
     
     private func addReminder() {
@@ -385,11 +392,14 @@ struct MapSearchView: View {
         
         print("ADD REMINDER LAT = \(coordinate.latitude)")
         print("ADD REMINDER LONG = \(coordinate.longitude)")
+        
+        let testingLat = 24.886232987295323
+        let testingLong = 67.11908763094051
 
         CoreDataManager.shared.addReminder(
             name: location.name ?? "Unknown",
             latitude: coordinate.latitude,
-            longitude: coordinate.longitude,
+            longitude:  coordinate.longitude,
             identifier: location.identifier?.rawValue ?? "",
             radius: 100,
             isActive: true
@@ -399,8 +409,8 @@ struct MapSearchView: View {
         
         
         locationManager.startMonitoringGeofence(identifier: location.identifier?.rawValue ?? "",
-                                                latitude: coordinate.latitude,
-                                                longitude: coordinate.longitude,
+                                                latitude:  coordinate.latitude,
+                                                longitude:  coordinate.longitude,
                                                 radius: 100,
                                                 triggerOnEntry: true,
                                                 triggerOnExit: true)

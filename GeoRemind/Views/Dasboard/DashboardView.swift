@@ -17,7 +17,7 @@ struct DashboardView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
+                LazyVStack(alignment: .leading, spacing: 20, pinnedViews: []) {
                     // Step Count Widget
                     StepCountView(stepCount: $stepCount, onFetchSteps: {
                         // Your fetch steps code goes here
@@ -41,14 +41,13 @@ struct DashboardView: View {
                         dashboardVM.reminders.remove(at: index)
                     }
 
-                    Spacer()
                 }
                 .padding(.top)
             }.refreshable {
                 dashboardVM.fetchReminders()
             }
-            .padding(.top, 15)
             .navigationTitle("Dashboard")
+            .navigationBarTitleDisplayMode(.large)
             .background(Color(.systemGroupedBackground))
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {

@@ -29,7 +29,6 @@ final class LocationManager: NSObject, ObservableObject {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
         locationManager.distanceFilter = 15
-//        locationManager.allowsBackgroundLocationUpdates = true
         locationManager.pausesLocationUpdatesAutomatically = false
         locationManager.activityType = .automotiveNavigation
 
@@ -40,6 +39,12 @@ final class LocationManager: NSObject, ObservableObject {
     
     func requestLocationPermission() {
         locationManager.requestWhenInUseAuthorization()
+    }
+    
+    func requestAlwaysAuthorizationIfNeeded() {
+        if authorizationStatus == .authorizedWhenInUse {
+            locationManager.requestAlwaysAuthorization()
+        }
     }
     
     func startUpdatingLocation() {
@@ -118,7 +123,10 @@ extension LocationManager : CLLocationManagerDelegate{
         authorizationStatus = manager.authorizationStatus
         
         switch authorizationStatus {
-        case .authorizedWhenInUse, .authorizedAlways:
+        case .authorizedWhenInUse:
+            startUpdatingLocation()
+            requestAlwaysAuthorizationIfNeeded() // ✅ Ask for Always
+        case .authorizedAlways:
             startUpdatingLocation()
         case .denied, .restricted:
             errorMessage = "Location access denied. Please enable location services in Settings."
@@ -183,6 +191,7 @@ extension LocationManager : CLLocationManagerDelegate{
     
     private func fetchCurrentActivityState() -> String {
         
+        activityManager.startTracking()
         var currentState = ""
         
         switch activityManager.currentActivity {
@@ -200,6 +209,13 @@ extension LocationManager : CLLocationManagerDelegate{
         case .unknown:
             currentState = "unknown"
         }
+        stopActivityTracking()
         return currentState
+    }
+    
+    private func  stopActivityTracking() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10) {
+            self.activityManager.stopTracking()
+        }
     }
 }

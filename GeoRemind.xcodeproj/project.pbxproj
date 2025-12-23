@@ -155,12 +155,14 @@
 				CODE_SIGN_ENTITLEMENTS = GeoRemind/GeoRemind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 696PA32759;
+				DEVELOPMENT_TEAM = 95C6JSW8P3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GeoRemind/Info.plist;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app reads your step count";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app writes health data";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show it on the map";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to trigger reminders even when the app is in the background";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location to trigger reminders even when the app is in the background.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show reminders and track geofences while using the app.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "This app need to detect motion";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -172,7 +174,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.carecloud.GeoRemind;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mtbc.primephr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -192,12 +194,14 @@
 				CODE_SIGN_ENTITLEMENTS = GeoRemind/GeoRemind.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 696PA32759;
+				DEVELOPMENT_TEAM = 95C6JSW8P3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GeoRemind/Info.plist;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "This app reads your step count";
 				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "This app writes health data";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show it on the map";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "We need your location to trigger reminders even when the app is in the background";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "We need your location to trigger reminders even when the app is in the background.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to show reminders and track geofences while using the app.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "This app need to detect motion";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -209,7 +213,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.carecloud.GeoRemind;
+				PRODUCT_BUNDLE_IDENTIFIER = com.mtbc.primephr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
