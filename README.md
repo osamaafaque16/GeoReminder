@@ -21,6 +21,7 @@ The app also provides insights into **daily step count** and **current activity 
 
 ![image alt](https://github.com/osamaafaque16/GeoReminder/blob/12d34a365667d4d1b6858c3e956ce53ca44a51fa/IMG_1.PNG)
 ![image alt](https://github.com/osamaafaque16/GeoReminder/blob/1146c2569231dee6d1685a9a11cba4a6925819ca/IMG_2.PNG)
+![image alt](https://github.com/osamaafaque16/GeoReminder/blob/bb4b76ac6e9243d57c71cb029e0f21c6024baec6/IMG_3.PNG)
 
 ### 1️⃣ Dashboard View
 
