@@ -63,44 +63,6 @@ class CoreDataManager {
         }
     }
     
-    // Delete reminder by ID
-//    func deleteReminder(withId id: UUID,completion: @escaping () -> Void) {
-//        let context = container.viewContext
-//        let request: NSFetchRequest<Reminder> = Reminder.fetchRequest()
-//        request.predicate = NSPredicate(format: "id == %@", id as CVarArg)
-//        
-//        do {
-//            let results = try context.fetch(request)
-//            if let reminderToDelete = results.first {
-//                context.delete(reminderToDelete)
-//                save()
-//                completion()
-//            }
-//        } catch {
-//            print("Failed to delete reminder: \(error)")
-//        }
-//    }
-    
-//    func deleteReminder(withIdentifier identifier: String, completion: @escaping () -> Void) {
-//        let context = container.viewContext
-//        let request: NSFetchRequest<Reminder> = Reminder.fetchRequest()
-//        request.predicate = NSPredicate(format: "identifier == %@", identifier)
-//        request.fetchLimit = 1
-//        
-//        do {
-//            if let reminderToDelete = try context.fetch(request).first {
-//                context.delete(reminderToDelete)
-//                print("Reminder deleted with identifier = \(identifier)")
-//                save()
-//                completion()
-//            } else {
-//                print("No reminder found with identifier: \(identifier)")
-//            }
-//        } catch {
-//            print("Failed to delete reminder by identifier:\(identifier) with error: \(error)")
-//        }
-//    }
-    
     func deleteReminder(withIdentifier identifier: String,completion: @escaping (_ deletedIndex: Int?) -> Void) {
         let context = container.viewContext
         let request: NSFetchRequest<Reminder> = Reminder.fetchRequest()

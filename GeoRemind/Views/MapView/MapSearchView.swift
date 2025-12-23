@@ -389,12 +389,6 @@ struct MapSearchView: View {
     private func addReminder() {
         guard let location = selectedLocation,
               let coordinate = location.placemark.location?.coordinate else { return }
-        
-        print("ADD REMINDER LAT = \(coordinate.latitude)")
-        print("ADD REMINDER LONG = \(coordinate.longitude)")
-        
-        let testingLat = 24.886232987295323
-        let testingLong = 67.11908763094051
 
         CoreDataManager.shared.addReminder(
             name: location.name ?? "Unknown",
