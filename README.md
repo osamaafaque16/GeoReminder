@@ -19,6 +19,8 @@ The app also provides insights into **daily step count** and **current activity 
 
 ## 📱 Screens Overview
 
+![image alt](https://github.com/osamaafaque16/GeoReminder/blob/12d34a365667d4d1b6858c3e956ce53ca44a51fa/IMG_1.PNG)
+
 ### 1️⃣ Dashboard View
 
 The **Dashboard View** acts as the central hub of the app.
