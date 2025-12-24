@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-       
+       // Sleep app for 2 seconds in splash
         Thread.sleep(forTimeInterval: 2)
         UNUserNotificationCenter.current().delegate = self
         self.requestNotificationPermission()
