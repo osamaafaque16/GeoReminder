@@ -1,0 +1,30 @@
+name: Claude PR Review
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  claude-review:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Claude Code Review
+        uses: anthropics/claude-code-action@v1
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          model: claude-3-5-sonnet-20240620
+          prompt: |
+            You are a senior iOS engineer.
+            Review this Swift / SwiftUI PR for:
+            - Clean Architecture
+            - SwiftUI best practices
+            - State management issues
+            - Performance & memory safety
+            - Readability & naming
+            - Suggestions for improvement
+
+            Provide actionable feedback and examples when possible.
