@@ -1,12 +1,10 @@
 name: Claude PR Review
 
-# Give workflow necessary permissions for PR and OIDC token
 permissions:
   contents: read
   pull-requests: write
   id-token: write
 
-# Trigger workflow on PR events
 on:
   pull_request:
     types: [opened, synchronize, reopened]
@@ -16,11 +14,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout the repo
-      - name: Checkout code
+      - name: Checkout repo
         uses: actions/checkout@v4
 
-      # 2️⃣ Run Claude Code Review
       - name: Run Claude PR Code Review
         uses: anthropics/claude-code-action@v1
         with:
@@ -36,5 +32,3 @@ jobs:
             - Readability & naming
             - Suggestions for improvement
             Provide actionable feedback and examples when possible.
-          # Optional: customize review settings
-          settings: '{"max_comment_length": 1500, "review_depth": "full"}'
