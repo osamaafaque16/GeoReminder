@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Gemini Code Review
-        uses: <gemini-github-action>  # Replace with actual Gemini action
+        uses: anthropics/gemini-action@v1  # Replace with actual Gemini action
         with:
           api_key: ${{ secrets.GEMINI_API_KEY }}
           model: gemini-1.5  # Example, adjust to your plan
