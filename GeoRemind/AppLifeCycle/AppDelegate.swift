@@ -106,19 +106,16 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         case "MARK_COMPLETE":
             let userInfo = response.notification.request.content.userInfo
             let identifier = userInfo["identifier"] as? String ?? ""
-            print("Mark Complete tapped for identifier: \(identifier)")
             let reminder = CoreDataManager.shared.fetchReminders()
             if let index = reminder.firstIndex(where: {$0.identifier == identifier}) {
                 CoreDataManager.shared.updateReminderStatus(id: reminder[index].id ?? UUID(), isActive: false)
             }
             // Handle mark complete logic here
         case "SNOOZE":
-            print("Snooze tapped")
             // Example: Reschedule after 10 min
             NotificationManager.shared.triggerNotificationAfterDelay(seconds: 300)
             
         case UNNotificationDefaultActionIdentifier:
-            print("Default action tapped")
             let userInfo = response.notification.request.content.userInfo
             let identifier = userInfo["identifier"] as? String ?? ""
             
