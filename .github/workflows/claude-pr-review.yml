@@ -17,6 +17,10 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
       - name: Run Claude PR Code Review
         uses: anthropics/claude-code-action@v1
         with:
