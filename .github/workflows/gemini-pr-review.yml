@@ -14,13 +14,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Checkout the full repository
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # required to generate PR diff
+          fetch-depth: 0
 
-      # 2️⃣ Generate the PR diff
       - name: Get PR diff
         id: diff
         run: |
@@ -30,16 +28,25 @@ jobs:
           cat pr_diff.txt >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
 
-      # 3️⃣ Run Gemini Code Review
       - name: Run Gemini Code Review
         uses: rubensflinco/gemini-code-review-action@1.0.5
         with:
-          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}      # Your Gemini API key
-          github_token: ${{ secrets.GITHUB_TOKEN }}          # GitHub token for posting comments
-          github_repository: ${{ github.repository }}       # e.g., osamaafaque16/GeoReminder
+          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_repository: ${{ github.repository }}
           github_pull_request_number: ${{ github.event.pull_request.number }}
           git_commit_hash: ${{ github.event.pull_request.head.sha }}
           pull_request_diff: ${{ steps.diff.outputs.pr_diff }}
-          model: "gemini-2.5-pro"                            # Change if you want a different Gemini model
-          pull_request_chunk_size: "3500"                    # Optional, default is 3500 tokens per chunk
-          log_level: "DEBUG"                                 # Optional, shows detailed logs
+          model: "gemini-2.5-pro"
+          pull_request_chunk_size: "3500"
+          log_level: "DEBUG"
+          extra_prompt: |
+            You are a senior iOS engineer.
+            Review this Swift/SwiftUI PR for:
+            - Clean Architecture
+            - SwiftUI best practices
+            - State management issues
+            - Performance & memory safety
+            - Readability & naming
+            - Suggestions for improvement
+            Provide actionable feedback and examples.
